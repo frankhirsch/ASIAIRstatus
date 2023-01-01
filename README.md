@@ -30,6 +30,6 @@ With the given information in MQTT it's possible to notify specific events (3rd 
 
 **Node Red sample flow**
 
-The provided Node Red flow is a basic sample illustrating how the MQTT messaging pipeline can be integrated into a user specific Pushover account
+The provided Node Red flow is a basic sample illustrating how the MQTT messaging pipeline can be integrated into a user specific [Pushover](https://pushover.net) account
 
 ![Node Red sample flow](/node-red/node_red.png)

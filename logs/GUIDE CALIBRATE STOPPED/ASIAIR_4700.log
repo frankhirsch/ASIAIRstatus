@@ -1,0 +1,7 @@
+19:44:42,82 root DEBUG b'{"Event":"Version","Timestamp":"179776.783709948","name":"ASI AIR imager","svr_ver_string":"1.0","svr_ver_int":29,"firmware_ver_int":1046,"firmware_ver_string":"10.46"}\r'
+19:44:56,656 root DEBUG b'{"Event":"PiStatus","Timestamp":"179791.307336569","is_overtemp":false,"temp":52,"is_undervolt":false,"is_over_current":false}\r'
+19:45:00,742 root DEBUG b'{"Event":"PiStatus","Timestamp":"179795.445614955","is_overtemp":false,"temp":50,"is_undervolt":false,"is_over_current":false}\r'
+19:45:02,39 root DEBUG b'{"Event":"Version","Timestamp":"179796.745263325","name":"ASI AIR imager","svr_ver_string":"1.0","svr_ver_int":29,"firmware_ver_int":1046,"firmware_ver_string":"10.46"}\r'
+19:45:17,398 root DEBUG b'{"Event":"Version","Timestamp":"179812.111065815","name":"ASI AIR imager","svr_ver_string":"1.0","svr_ver_int":29,"firmware_ver_int":1046,"firmware_ver_string":"10.46"}\r'
+19:45:33,31 root DEBUG b'{"Event":"Version","Timestamp":"179827.742824102","name":"ASI AIR imager","svr_ver_string":"1.0","svr_ver_int":29,"firmware_ver_int":1046,"firmware_ver_string":"10.46"}\r'
+19:45:48,110 root DEBUG b'{"Event":"Version","Timestamp":"179842.824270223","name":"ASI AIR imager","svr_ver_string":"1.0","svr_ver_int":29,"firmware_ver_int":1046,"firmware_ver_string":"10.46"}\r'

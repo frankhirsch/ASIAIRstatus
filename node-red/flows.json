@@ -1,0 +1,797 @@
+[
+    {
+        "id": "a106d269e575c22e",
+        "type": "tab",
+        "label": "AISIAR MQTT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "673ac4d93e5ceb23",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Version",
+        "topic": "asiairv2/Version",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 540,
+        "wires": [
+            [
+                "fed4737e76936810"
+            ]
+        ]
+    },
+    {
+        "id": "0ad58b999906fe34",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR PiStatus",
+        "topic": "asiairv2/PiStatus",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 660,
+        "wires": [
+            [
+                "62a2ad9594415241",
+                "b4a83088448ab0b1",
+                "f81c1909adc7f6dc",
+                "fed4737e76936810"
+            ]
+        ]
+    },
+    {
+        "id": "fed4737e76936810",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "MQTT data -> Event",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "62a2ad9594415241",
+        "type": "switch",
+        "z": "a106d269e575c22e",
+        "name": "Hardware overtemp",
+        "property": "payload.is_overtemp",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 660,
+        "wires": [
+            [
+                "b2b4ab4aa9dee150"
+            ]
+        ]
+    },
+    {
+        "id": "b4a83088448ab0b1",
+        "type": "switch",
+        "z": "a106d269e575c22e",
+        "name": "Hardware undervolt",
+        "property": "payload.is_undervolt",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "b2b4ab4aa9dee150"
+            ]
+        ]
+    },
+    {
+        "id": "f81c1909adc7f6dc",
+        "type": "switch",
+        "z": "a106d269e575c22e",
+        "name": "Hardware overvolt",
+        "property": "payload.is_overtemp",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 740,
+        "wires": [
+            [
+                "b2b4ab4aa9dee150"
+            ]
+        ]
+    },
+    {
+        "id": "b2b4ab4aa9dee150",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR hardware issues",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7a7d02528eeb5a16",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Annotate",
+        "topic": "asiairv2/Annotate",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 960,
+        "wires": [
+            [
+                "f2ccd9c118657a36",
+                "fed4737e76936810"
+            ]
+        ]
+    },
+    {
+        "id": "19577df454f4223f",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR CameraControlChange",
+        "topic": "asiairv2/CameraControlChange",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "fed4737e76936810"
+            ]
+        ]
+    },
+    {
+        "id": "3f7cc1ba704c6651",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Exposure",
+        "topic": "asiairv2/Exposure",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 1020,
+        "wires": [
+            [
+                "f2ccd9c118657a36",
+                "fed4737e76936810",
+                "e609b171be8956ed"
+            ]
+        ]
+    },
+    {
+        "id": "cfae45b2c7645186",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR PlateSolve",
+        "topic": "asiairv2/PlateSolve",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 1080,
+        "wires": [
+            [
+                "f2ccd9c118657a36",
+                "fed4737e76936810"
+            ]
+        ]
+    },
+    {
+        "id": "f2ccd9c118657a36",
+        "type": "switch",
+        "z": "a106d269e575c22e",
+        "name": "Software failed action",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "fail",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 960,
+        "wires": [
+            [
+                "74b9c98adeb9e9bd",
+                "512bfa9ef12fa5b9"
+            ]
+        ]
+    },
+    {
+        "id": "74b9c98adeb9e9bd",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR software issues",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "93f90967f854481a",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR CameraControlChange",
+        "topic": "asiairv2/LoopingExposures",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 1260,
+        "wires": [
+            [
+                "fed4737e76936810",
+                "e609b171be8956ed"
+            ]
+        ]
+    },
+    {
+        "id": "e609b171be8956ed",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Session",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "85a3ebf6facdf549",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR CoolerPower",
+        "topic": "asiairv2/CoolerPower",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 1320,
+        "wires": [
+            [
+                "fed4737e76936810",
+                "e609b171be8956ed"
+            ]
+        ]
+    },
+    {
+        "id": "23139e2918d13e0b",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Temperature",
+        "topic": "asiairv2/Temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 1380,
+        "wires": [
+            [
+                "fed4737e76936810",
+                "e609b171be8956ed"
+            ]
+        ]
+    },
+    {
+        "id": "1f1c27a2b72920d5",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR INDIServer",
+        "topic": "asiairv2/INDIServer",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 800,
+        "wires": [
+            [
+                "bb4afba39f749e1e"
+            ]
+        ]
+    },
+    {
+        "id": "bb4afba39f749e1e",
+        "type": "switch",
+        "z": "a106d269e575c22e",
+        "name": "Hardware disconnect",
+        "property": "payload.Msg",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "offline",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 800,
+        "wires": [
+            [
+                "7acd894b93adcfb1",
+                "bc9769371a793b4c"
+            ]
+        ]
+    },
+    {
+        "id": "7acd894b93adcfb1",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR hardware disconnect",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "1cc27a1752b14f98",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR CameraStateChange",
+        "topic": "asiairv2/CameraStateChange",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 880,
+        "wires": [
+            [
+                "7acd894b93adcfb1"
+            ]
+        ]
+    },
+    {
+        "id": "bc9769371a793b4c",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification content",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.Msg}}",
+        "output": "str",
+        "x": 790,
+        "y": 860,
+        "wires": [
+            [
+                "c5ff6aa56a99807c"
+            ]
+        ]
+    },
+    {
+        "id": "6d2305594a76d568",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Connected",
+        "topic": "asiairv2/Connected",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "50a7d287ea6b7217",
+                "6f821e3df60455de"
+            ]
+        ]
+    },
+    {
+        "id": "411c7a7845767dea",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR Disconnected",
+        "topic": "asiairv2/Disconnected",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "50a7d287ea6b7217",
+                "f0606aa48e5e8e99"
+            ]
+        ]
+    },
+    {
+        "id": "50a7d287ea6b7217",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b3ac181dc0f0247d",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification content",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.instance}} {{payload.Event}}",
+        "output": "str",
+        "x": 790,
+        "y": 480,
+        "wires": [
+            [
+                "0e81bfa6bb6213dc"
+            ]
+        ]
+    },
+    {
+        "id": "daaec41a8a320b64",
+        "type": "debug",
+        "z": "a106d269e575c22e",
+        "name": "Pushover result",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "0e81bfa6bb6213dc",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification sound",
+        "field": "sound",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "magic",
+        "output": "str",
+        "x": 1050,
+        "y": 460,
+        "wires": [
+            [
+                "39609eb321dfaf8b"
+            ]
+        ]
+    },
+    {
+        "id": "39609eb321dfaf8b",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification topic",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.instance}} status changed",
+        "output": "str",
+        "x": 1050,
+        "y": 500,
+        "wires": [
+            [
+                "da99e5fc43f51b7e"
+            ]
+        ]
+    },
+    {
+        "id": "da99e5fc43f51b7e",
+        "type": "ntc-node-red-pushover-notifications",
+        "z": "a106d269e575c22e",
+        "d": true,
+        "keys": "8bc9483c398a2647",
+        "title": "",
+        "name": "",
+        "x": 1290,
+        "y": 900,
+        "wires": [
+            [
+                "daaec41a8a320b64"
+            ]
+        ]
+    },
+    {
+        "id": "6f821e3df60455de",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification priority (0)",
+        "field": "priority",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "0",
+        "output": "str",
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "b3ac181dc0f0247d"
+            ]
+        ]
+    },
+    {
+        "id": "f0606aa48e5e8e99",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification priority (1)",
+        "field": "priority",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "1",
+        "output": "str",
+        "x": 480,
+        "y": 440,
+        "wires": [
+            [
+                "b3ac181dc0f0247d"
+            ]
+        ]
+    },
+    {
+        "id": "c5ff6aa56a99807c",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification priority (1)",
+        "field": "priority",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "1",
+        "output": "str",
+        "x": 800,
+        "y": 900,
+        "wires": [
+            [
+                "da99e5fc43f51b7e"
+            ]
+        ]
+    },
+    {
+        "id": "512bfa9ef12fa5b9",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification content",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.Event}} failed",
+        "output": "str",
+        "x": 790,
+        "y": 1000,
+        "wires": [
+            [
+                "7460169e6d8a2085"
+            ]
+        ]
+    },
+    {
+        "id": "7460169e6d8a2085",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification priority (1)",
+        "field": "priority",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "1",
+        "output": "str",
+        "x": 800,
+        "y": 1040,
+        "wires": [
+            [
+                "3b068ac3225b135d"
+            ]
+        ]
+    },
+    {
+        "id": "3b068ac3225b135d",
+        "type": "template",
+        "z": "a106d269e575c22e",
+        "name": "Notification topic",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.instance}} {{payload.Event}} failed",
+        "output": "str",
+        "x": 790,
+        "y": 1080,
+        "wires": [
+            [
+                "da99e5fc43f51b7e"
+            ]
+        ]
+    },
+    {
+        "id": "53043a8c31d3398c",
+        "type": "mqtt in",
+        "z": "a106d269e575c22e",
+        "name": "ASIAIR FindStar",
+        "topic": "asiairv2/FindStar",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "528318d574f3349d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 1140,
+        "wires": [
+            [
+                "f2ccd9c118657a36"
+            ]
+        ]
+    },
+    {
+        "id": "528318d574f3349d",
+        "type": "mqtt-broker",
+        "name": "nodeRed",
+        "broker": "127.0.0.1",
+        "port": "1900",
+        "clientid": "mqtt-nodeRed",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": false,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8bc9483c398a2647",
+        "type": "ntc-node-red-pushover-keys",
+        "name": "Pushover"
+    }
+]

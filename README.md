@@ -10,6 +10,7 @@ The Python source code will allow to fetch ANY (or selected) events sent out fro
 **To start run**
 
 `./socket.py 192.168.178.100 4400 asiairPro 192.168.178.200 1883`
+`./socket.py 192.168.178.100 4700 asiairPro 192.168.178.200 1883`
 
 **Features**
 1. Does automatically reconnect on connection loss (TCP socket stream)
